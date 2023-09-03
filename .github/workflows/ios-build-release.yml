@@ -36,3 +36,12 @@ jobs:
               with:
                 name: URRegistryFFI.xcframework.zip
                 path: URRegistryFFI.xcframework.zip
+            - name: Upload XCFramework to Release
+              uses: svenstaro/upload-release-action@2.6.0
+              with:
+                file: URRegistryFFI.xcframework.zip
+                asset_name: URRegistryFFI.xcframework.zip
+                tag: 0.1.0
+                overwrite: true
+                make_latest: false
+                body: "iOS XCFramework Checksum: ${{ steps.zip-and-sha.outputs.FRAMEWORK_CHECKSUM }}"
