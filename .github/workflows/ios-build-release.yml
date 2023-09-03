@@ -31,5 +31,8 @@ jobs:
                 XCF_CHECKSUM=$(shasum -a 256 URRegistryFFI.xcframework.zip | cut -b 1-64)
                 echo "XCFramework Checksum: $XCF_CHECKSUM" >> $GITHUB_STEP_SUMMARY
                 echo "FRAMEWORK_CHECKSUM=$XCF_CHECKSUM" >> $GITHUB_OUTPUT
-
-        
+            - name: Attach artifact
+              uses: actions/upload-artifact@v3
+              with:
+                name: URRegistryFFI.xcframework.zip
+                path: URRegistryFFI.xcframework.zip
